@@ -52,12 +52,10 @@ app.post("/register", (req, res) => {
     return res.status(400).json({ message: "Barcha maydonlarni to'ldiring!" });
   }
   if (!["individual", "business"].includes(type)) {
-    return res
-      .status(400)
-      .json({
-        message:
-          "Noto'g'ri foydalanuvchi turi! Faqat 'individual' yoki 'business' bo'lishi mumkin.",
-      });
+    return res.status(400).json({
+      message:
+        "Noto'g'ri foydalanuvchi turi! Faqat 'individual' yoki 'business' bo'lishi mumkin.",
+    });
   }
   if (users.some((user) => user.email === email)) {
     return res
@@ -116,12 +114,10 @@ app.post("/request", (req, res) => {
     return res.status(400).json({ message: "Barcha maydonlarni to'ldiring!" });
   }
   if (!["texnik", "hisob", "boshqa"].includes(category)) {
-    return res
-      .status(400)
-      .json({
-        message:
-          "Noto'g'ri kategoriya! Faqat 'texnik', 'hisob' yoki 'boshqa' bo'lishi mumkin.",
-      });
+    return res.status(400).json({
+      message:
+        "Noto'g'ri kategoriya! Faqat 'texnik', 'hisob' yoki 'boshqa' bo'lishi mumkin.",
+    });
   }
 
   // Validate user
@@ -243,7 +239,7 @@ app.post("/reply", (req, res) => {
   });
 });
 
-app.get("hello", (req, res) => {
+app.get("/hello", (req, res) => {
   res.status(200).send("Hello world!");
 });
 
